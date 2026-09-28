@@ -68,21 +68,55 @@ function loadCrianza() {
   }
 }
 
+// Salario Mínimo, Vital y Móvil — lo fija el Consejo del Salario cada varios meses,
+// tampoco tiene una API pública estable. Actualizar acá cuando cambie.
+const SMVM = {
+  valor: null, // Ej: 322000  (dejar null hasta cargar el dato real)
+  periodo: null, // Ej: 'Vigente desde septiembre 2026'
+};
+function loadSmvm() {
+  const valueEl = document.getElementById('smvmValue');
+  const subEl = document.getElementById('smvmSub');
+  if (SMVM.valor) {
+    valueEl.textContent = fmtARS(SMVM.valor);
+    subEl.textContent = SMVM.periodo;
+  } else {
+    valueEl.textContent = 'Ver fuente oficial';
+    subEl.textContent = 'Dato a cargar por el estudio — sin API pública estable para este valor.';
+  }
+}
+
 loadDolar();
 loadInflacion();
 loadCrianza();
+loadSmvm();
 
 // ===== Calculadora de cuota alimentaria estimada =====
 const alimentosForm = document.getElementById('alimentosForm');
 if (alimentosForm) {
   alimentosForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const ingreso = parseFloat(document.getElementById('alimentosIngreso').value) || 0;
+    const metodo = alimentosForm.querySelector('input[name="alimentosBase"]:checked').value;
     const hijos = parseInt(document.getElementById('alimentosHijos').value, 10) || 1;
-    const porcentaje = Math.min(0.20 + Math.max(hijos - 1, 0) * 0.10, 0.50);
-    const estimado = ingreso * porcentaje;
+    const proporcion = parseFloat(document.getElementById('alimentosProporcion').value) || 0;
 
-    document.getElementById('alimentosValue').textContent = `${fmtARS(estimado)} / mes (≈ ${Math.round(porcentaje * 100)}% del ingreso)`;
+    const base = metodo === 'smvm'
+      ? { ...SMVM, nombre: 'Salario Mínimo, Vital y Móvil' }
+      : { ...CANASTA_CRIANZA, nombre: 'Costo de crianza (INDEC)' };
+
+    const valueEl = document.getElementById('alimentosValue');
+    const baseInfoEl = document.getElementById('alimentosBaseInfo');
+
+    if (!base.valor) {
+      valueEl.textContent = 'Valor de referencia aún no cargado';
+      baseInfoEl.textContent = `El estudio todavía no cargó el valor de "${base.nombre}". Escribinos para una estimación personalizada.`;
+      document.getElementById('alimentosResult').hidden = false;
+      return;
+    }
+
+    const estimado = base.valor * hijos * (proporcion / 100);
+    valueEl.textContent = `${fmtARS(estimado)} / mes`;
+    baseInfoEl.textContent = `Base: ${base.nombre} (${fmtARS(base.valor)} por hijo/a, ${base.periodo}) × ${hijos} hijo/a(s) × ${proporcion}%`;
     document.getElementById('alimentosResult').hidden = false;
   });
 }

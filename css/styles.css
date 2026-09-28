@@ -721,6 +721,39 @@ section { padding: 76px 0; }
 }
 .calc-fields input:focus { outline: none; border-color: var(--color-red); }
 
+.calc-radio-group {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+}
+.calc-radio-title {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--color-gray-800);
+  width: 100%;
+}
+.calc-radio-group .calc-radio {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--color-gray-800);
+  cursor: pointer;
+}
+.calc-radio input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  accent-color: var(--color-red);
+  cursor: pointer;
+}
+
 .calc-result {
   max-width: 640px;
   margin: 24px auto 0;
