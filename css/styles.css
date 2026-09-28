@@ -642,7 +642,6 @@ section { padding: 76px 0; }
 }
 
 /* ===== Recursos: datos de referencia ===== */
-.ref-data { background: var(--color-gray-50); }
 .ref-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));

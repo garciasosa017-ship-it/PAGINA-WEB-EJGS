@@ -54,38 +54,6 @@
     </div>
   </section>
 
-  <!-- ===== DATOS DE REFERENCIA ===== -->
-  <section class="ref-data">
-    <div class="container">
-      <h2 class="section-title">Datos de referencia del día</h2>
-      <p class="section-lead">Se actualizan automáticamente al cargar la página.</p>
-
-      <div class="ref-grid">
-        <div class="ref-card" id="cardDolar">
-          <span class="ref-label">Dólar oficial (ref. Banco Nación)</span>
-          <span class="ref-value" id="dolarValue">Cargando…</span>
-          <span class="ref-sub" id="dolarSub"></span>
-          <a class="ref-source" href="https://www.bna.com.ar/Personas" target="_blank" rel="noopener">Ver cotización oficial en BNA ↗</a>
-        </div>
-
-        <div class="ref-card" id="cardInflacion">
-          <span class="ref-label">Inflación mensual (IPC INDEC)</span>
-          <span class="ref-value" id="inflacionValue">Cargando…</span>
-          <span class="ref-sub" id="inflacionSub"></span>
-          <a class="ref-source" href="https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-5-31" target="_blank" rel="noopener">Ver fuente en INDEC ↗</a>
-        </div>
-
-        <div class="ref-card" id="cardCrianza">
-          <span class="ref-label">Costo mensual de crianza (INDEC)</span>
-          <span class="ref-value" id="crianzaValue">—</span>
-          <span class="ref-sub" id="crianzaSub">Valor por hijo/a, actualizado manualmente por el estudio</span>
-          <a class="ref-source" href="https://www.indec.gob.ar/indec/web/Nivel4-Tema-4-43-149" target="_blank" rel="noopener">Ver Canasta de Crianza en INDEC ↗</a>
-        </div>
-      </div>
-      <p class="ref-note">Los valores de esta sección son de referencia general y pueden no coincidir exactamente con la cotización u organismo oficial al momento de tu consulta. Ante cualquier duda, verificá siempre la fuente oficial enlazada en cada dato.</p>
-    </div>
-  </section>
-
   <!-- ===== CALCULADORA CUOTA ALIMENTARIA ===== -->
   <section class="calculator">
     <div class="container">
@@ -109,7 +77,7 @@
       <div class="calc-result" id="alimentosResult" hidden>
         <span class="calc-result-label">Estimación orientativa</span>
         <span class="calc-result-value" id="alimentosValue">—</span>
-        <p class="calc-result-note">Calculado sobre un criterio general de referencia (20% del ingreso para 1 hijo/a, +10% por cada hijo/a adicional). No es un monto vinculante ni reemplaza el asesoramiento profesional.</p>
+        <p class="calc-result-note">Monto provisorio y no definitivo, calculado sobre un criterio general de referencia (20% del ingreso para 1 hijo/a, +10% por cada hijo/a adicional). El valor definitivo surge de la escala que establezca oportunamente el juez, atendiendo las circunstancias específicas de las partes.</p>
       </div>
     </div>
   </section>
@@ -148,6 +116,38 @@
         <span class="calc-result-total" id="interesesTotal"></span>
         <p class="calc-result-note">Cálculo de interés simple ((capital × tasa anual ÷ 365) × días transcurridos). La tasa aplicable a tu caso puede diferir según lo que corresponda judicialmente o por acuerdo entre partes.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== DATOS DE REFERENCIA ===== -->
+  <section class="ref-data">
+    <div class="container">
+      <h2 class="section-title">Datos de referencia del día</h2>
+      <p class="section-lead">Se actualizan automáticamente al cargar la página.</p>
+
+      <div class="ref-grid">
+        <div class="ref-card" id="cardDolar">
+          <span class="ref-label">Dólar oficial (ref. Banco Nación)</span>
+          <span class="ref-value" id="dolarValue">Cargando…</span>
+          <span class="ref-sub" id="dolarSub"></span>
+          <a class="ref-source" href="https://www.bna.com.ar/Personas" target="_blank" rel="noopener">Ver cotización oficial en BNA ↗</a>
+        </div>
+
+        <div class="ref-card" id="cardInflacion">
+          <span class="ref-label">Inflación mensual (IPC INDEC)</span>
+          <span class="ref-value" id="inflacionValue">Cargando…</span>
+          <span class="ref-sub" id="inflacionSub"></span>
+          <a class="ref-source" href="https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-5-31" target="_blank" rel="noopener">Ver fuente en INDEC ↗</a>
+        </div>
+
+        <div class="ref-card" id="cardCrianza">
+          <span class="ref-label">Costo mensual de crianza (INDEC)</span>
+          <span class="ref-value" id="crianzaValue">—</span>
+          <span class="ref-sub" id="crianzaSub">Valor por hijo/a, actualizado manualmente por el estudio</span>
+          <a class="ref-source" href="https://www.indec.gob.ar/indec/web/Nivel4-Tema-4-43-149" target="_blank" rel="noopener">Ver Canasta de Crianza en INDEC ↗</a>
+        </div>
+      </div>
+      <p class="ref-note">Los valores de esta sección son de referencia general y pueden no coincidir exactamente con la cotización u organismo oficial al momento de tu consulta. Ante cualquier duda, verificá siempre la fuente oficial enlazada en cada dato.</p>
     </div>
   </section>
 
