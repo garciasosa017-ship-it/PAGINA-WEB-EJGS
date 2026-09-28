@@ -87,6 +87,7 @@ button { font-family: inherit; cursor: pointer; }
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--color-gray-100);
 }
+.site-header .container { max-width: 1320px; }
 .header-inner {
   display: flex;
   align-items: center;
@@ -112,11 +113,12 @@ button { font-family: inherit; cursor: pointer; }
 
 .main-nav {
   display: flex;
-  gap: 28px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 .main-nav a {
-  font-size: .92rem;
+  font-size: .87rem;
+  white-space: nowrap;
   font-weight: 500;
   color: var(--color-gray-800);
   position: relative;
@@ -177,6 +179,61 @@ button { font-family: inherit; cursor: pointer; }
   text-transform: uppercase;
   color: var(--color-gray-300);
   margin: 0;
+}
+
+/* ===== Page hero (subpáginas) ===== */
+.page-hero {
+  background: var(--color-black);
+  color: var(--color-white);
+  padding: 70px 0 50px;
+  text-align: center;
+}
+.page-hero h1 { color: var(--color-white); font-size: clamp(2rem, 4.5vw, 2.6rem); }
+.page-hero .hero-lead { margin-bottom: 0; }
+
+/* ===== Novedades ===== */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 2.5em;
+}
+.news-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-100);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+}
+.news-tag {
+  align-self: flex-start;
+  background: rgba(199,0,0,.08);
+  color: var(--color-red);
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.news-date {
+  font-size: .8rem;
+  color: var(--color-gray-600);
+  margin-bottom: 10px;
+}
+.news-card h2 {
+  font-size: 1.15rem;
+  margin-bottom: .5em;
+}
+.news-card p { color: var(--color-gray-600); font-size: .93rem; margin: 0; }
+.news-note {
+  text-align: center;
+  color: var(--color-gray-600);
+  font-size: .85rem;
+  margin-top: 2.5em;
 }
 
 /* ===== Credential strip ===== */
