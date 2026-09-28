@@ -34,11 +34,17 @@ document.querySelectorAll('.faq-question').forEach(btn => {
   });
 });
 
-// Formulario de contacto (placeholder hasta definir email/WhatsApp de destino)
+// Formulario de contacto: abre el cliente de correo con el mensaje redactado
+const CONTACT_EMAIL = 'estudiointegralgarciasosa@gmail.com';
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    alert('Gracias por tu mensaje. En breve el estudio va a configurar el envío automático de este formulario.');
+    const nombre = contactForm.nombre.value.trim();
+    const telefono = contactForm.telefono.value.trim();
+    const mensaje = contactForm.mensaje.value.trim();
+    const subject = encodeURIComponent(`Consulta de ${nombre}`);
+    const body = encodeURIComponent(`Nombre: ${nombre}\nTeléfono: ${telefono}\n\n${mensaje}`);
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
   });
 }
